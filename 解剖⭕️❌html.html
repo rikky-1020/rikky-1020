@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>解剖生理学 ◯×クイズ 300問</title>
+<style>
+:root{--pri:#2563eb;--pri-d:#1d4ed8;--ok:#16a34a;--ng:#dc2626;--bg:#f1f5f9;--card:#fff;--txt:#1e293b;--mut:#64748b;--bdr:#e2e8f0}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Hiragino Sans',sans-serif;background:var(--bg);color:var(--txt);min-height:100vh}
+.c{max-width:720px;margin:0 auto;padding:16px}
+header{text-align:center;padding:32px 0 16px}
+header h1{font-size:1.5rem;font-weight:800;background:linear-gradient(135deg,var(--pri),#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+header p{color:var(--mut);font-size:.85rem;margin-top:4px}
+.scr{display:none}.scr.on{display:block}
+.mc{background:var(--card);border-radius:16px;padding:24px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,.08);border:2px solid var(--bdr);cursor:pointer;transition:border-color .2s,transform .15s}
+.mc:hover{border-color:var(--pri);transform:translateY(-2px)}
+.mc h2{font-size:1.15rem;margin-bottom:6px}.mc p{color:var(--mut);font-size:.85rem}
+.cg{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px}
+.cb{padding:14px 10px;border:2px solid var(--bdr);border-radius:12px;background:var(--card);font-size:.95rem;font-weight:600;cursor:pointer;transition:all .2s;text-align:center}
+.cb:hover,.cb.sel{border-color:var(--pri);background:#eff6ff;color:var(--pri)}
+.cs{display:flex;gap:10px;margin-bottom:20px;justify-content:center}
+.cn{padding:10px 24px;border:2px solid var(--bdr);border-radius:10px;background:var(--card);font-size:.95rem;font-weight:600;cursor:pointer;transition:all .2s}
+.cn:hover,.cn.sel{border-color:var(--pri);background:#eff6ff;color:var(--pri)}
+.sb{display:block;width:100%;padding:14px;border:none;border-radius:12px;background:var(--pri);color:#fff;font-size:1.05rem;font-weight:700;cursor:pointer;transition:background .2s}
+.sb:hover{background:var(--pri-d)}.sb:disabled{background:#94a3b8;cursor:not-allowed}
+.bl{display:inline-block;margin-bottom:16px;color:var(--pri);font-size:.9rem;cursor:pointer;font-weight:600}.bl:hover{text-decoration:underline}
+.pbw{background:var(--bdr);border-radius:99px;height:8px;margin-bottom:8px;overflow:hidden}
+.pb{height:100%;background:var(--pri);border-radius:99px;transition:width .4s;width:0}
+.pt{text-align:right;font-size:.8rem;color:var(--mut);margin-bottom:16px}
+.qc{background:var(--card);border-radius:16px;padding:28px 24px;box-shadow:0 2px 8px rgba(0,0,0,.06);margin-bottom:16px}
+.qn{font-size:.8rem;color:var(--mut);margin-bottom:8px;font-weight:600}
+.qt{font-size:1.08rem;line-height:1.7;font-weight:500}
+.ab{display:flex;gap:12px;margin-top:20px}
+.ab button{flex:1;padding:14px;border:2px solid var(--bdr);border-radius:12px;font-size:1.1rem;font-weight:700;cursor:pointer;background:var(--card);transition:all .15s}
+.ab button:hover:not(:disabled){transform:scale(1.03)}
+.ab .bt:hover:not(:disabled){border-color:var(--ok);color:var(--ok)}
+.ab .bf:hover:not(:disabled){border-color:var(--ng);color:var(--ng)}
+.ab button:disabled{cursor:default;opacity:.6}
+.fb{margin-top:16px;padding:16px;border-radius:12px;display:none;line-height:1.6;font-size:.95rem}
+.fb.show{display:block;animation:fi .3s}
+.fb.cfb{background:#f0fdf4;border-left:4px solid var(--ok)}
+.fb.wfb{background:#fef2f2;border-left:4px solid var(--ng)}
+.fl{font-weight:700;margin-bottom:4px}.fl.cl{color:var(--ok)}.fl.wl{color:var(--ng)}
+.nb{display:none;width:100%;margin-top:14px;padding:13px;border:none;border-radius:12px;background:var(--pri);color:#fff;font-size:1rem;font-weight:700;cursor:pointer;transition:background .2s}
+.nb:hover{background:var(--pri-d)}.nb.show{display:block;animation:fi .3s}
+.rb{background:var(--card);border-radius:20px;padding:36px 24px;text-align:center;box-shadow:0 4px 16px rgba(0,0,0,.08)}
+.sc{width:140px;height:140px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto 20px;font-weight:800;font-size:2.2rem;color:#fff}
+.sc .ss{font-size:.85rem;font-weight:600;opacity:.9}
+.sh{background:linear-gradient(135deg,#16a34a,#22d3ee)}
+.sm{background:linear-gradient(135deg,#f59e0b,#fb923c)}
+.sl{background:linear-gradient(135deg,#dc2626,#f87171)}
+.rb h2{font-size:1.3rem;margin-bottom:8px}.rb p{color:var(--mut);margin-bottom:20px;font-size:.95rem}
+.rbs{display:flex;gap:10px;flex-direction:column}
+.rbs button{padding:13px;border:none;border-radius:12px;font-size:1rem;font-weight:700;cursor:pointer;transition:background .2s}
+.brv{background:#f1f5f9;color:var(--txt)}.brv:hover{background:#e2e8f0}
+.bhm{background:var(--pri);color:#fff}.bhm:hover{background:var(--pri-d)}
+.ri{background:var(--card);border-radius:14px;padding:18px;margin-bottom:12px;border-left:4px solid var(--bdr)}
+.ri.rc{border-left-color:var(--ok)}.ri.rw{border-left-color:var(--ng)}
+.rh{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.rn{font-size:.8rem;color:var(--mut);font-weight:600}
+.rdg{font-size:.75rem;font-weight:700;padding:2px 10px;border-radius:99px;color:#fff}
+.rdg.bc{background:var(--ok)}.rdg.bw{background:var(--ng)}
+.rtx{font-size:.95rem;line-height:1.6;margin-bottom:6px}
+.ra{font-size:.85rem;color:var(--mut)}.re{font-size:.85rem;color:var(--mut);margin-top:4px;line-height:1.5}
+@keyframes fi{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.sl2{display:block;font-weight:700;font-size:.9rem;color:var(--mut);margin-bottom:10px;text-align:center}
+</style>
+</head>
+<body>
+<div class="c">
+<header><h1>解剖生理学 ◯×クイズ</h1><p>全6章・300問</p></header>
+<div id="S0" class="scr on">
+<div class="mc" onclick="S1()"><h2>📖 章別モード</h2><p>章を選んで集中学習（10/20/50問）</p></div>
+<div class="mc" onclick="S2()"><h2>📝 総合モード</h2><p>全章からランダム出題（60/80/100問）</p></div>
+</div>
+<div id="S1" class="scr">
+<span class="bl" onclick="S0()">← メニューに戻る</span>
+<label class="sl2">章を選択</label><div class="cg" id="CG"></div>
+<label class="sl2">出題数</label><div class="cs" id="CC"></div>
+<button class="sb" id="CS" disabled onclick="startCh()">スタート</button>
+</div>
+<div id="S2" class="scr">
+<span class="bl" onclick="S0()">← メニューに戻る</span>
+<label class="sl2">出題数</label><div class="cs" id="AC"></div>
+<button class="sb" onclick="startAll()">スタート</button>
+</div>
+<div id="S3" class="scr">
+<span class="bl" onclick="quit()">← 戻る</span>
+<div class="pbw"><div class="pb" id="PB"></div></div>
+<div class="pt" id="PT"></div>
+<div class="qc"><div class="qn" id="QN"></div><div class="qt" id="QT"></div></div>
+<div class="ab"><button class="bt" onclick="ans(true)">◯</button><button class="bf" onclick="ans(false)">✕</button></div>
+<div class="fb" id="FB"><div class="fl" id="FL"></div><div id="FE"></div></div>
+<button class="nb" id="NB" onclick="nxt()">次の問題 →</button>
+</div>
+<div id="S4" class="scr">
+<div class="rb">
+<div class="sc" id="SC"><span id="SV"></span><span class="ss" id="SB"></span></div>
+<h2 id="RT"></h2><p id="RD"></p>
+<div class="rbs"><button class="brv" onclick="rev()">解答を確認する</button><button class="bhm" onclick="S0()">メニューに戻る</button></div>
+</div>
+</div>
+<div id="S5" class="scr">
+<span class="bl" onclick="res()">← 結果に戻る</span>
+<div id="RL"></div>
+<button class="sb" style="margin-top:16px" onclick="S0()">メニューに戻る</button>
+</div>
+</div>
+<script>
+var Q={
+  "呼吸器系": [
+    {id:"resp_001",text:"鼻腔は吸気の加温・加湿・除塵の機能をもつ。",answer:true,explanation:"鼻腔の粘膜は豊富な血管と粘液腺を持ち、吸気を加温・加湿し、線毛と粘液で異物を除去する。"},
+    {id:"resp_002",text:"喉頭は食道の前方に位置する。",answer:true,explanation:"喉頭は頸部前面で食道の前方に位置し、気道の一部であると同時に発声器官でもある。"},
+    {id:"resp_003",text:"気管は食道の後方に位置する。",answer:false,explanation:"気管は食道の前方に位置する。食道が気管の後方にある。"},
+    {id:"resp_004",text:"気管は第6頸椎の高さで左右の主気管支に分岐する。",answer:false,explanation:"気管は第4〜5胸椎の高さ（気管分岐部）で左右の主気管支に分かれる。"},
+    {id:"resp_005",text:"右主気管支は左主気管支より太く短く、傾斜が急である。",answer:true,explanation:"右主気管支は左より太く短く垂直に近いため、誤嚥した異物は右側に入りやすい。"},
+    {id:"resp_006",text:"気管の壁にはC字型（馬蹄形）の気管軟骨がある。",answer:true,explanation:"気管軟骨はC字型で後壁が膜性壁となっており、食道の拡張を妨げない構造になっている。"},
+    {id:"resp_007",text:"肺は左右とも3葉に分かれている。",answer:false,explanation:"右肺は上葉・中葉・下葉の3葉、左肺は上葉・下葉の2葉に分かれる。左肺は心臓のスペースのため2葉である。"},
+    {id:"resp_008",text:"左肺には心切痕がみられる。",answer:true,explanation:"左肺の前縁には心臓が突出するためにできた心切痕（心圧痕）がある。"},
+    {id:"resp_009",text:"肺の機能的単位は肺小葉（二次小葉）である。",answer:true,explanation:"肺小葉は細気管支とそれに伴う肺胞群からなる肺の構造的・機能的単位である。"},
+    {id:"resp_010",text:"肺胞の表面を覆うII型肺胞上皮細胞はガス交換を担う。",answer:false,explanation:"ガス交換を担うのはI型肺胞上皮細胞である。II型肺胞上皮細胞は肺サーファクタントを分泌する。"},
+    {id:"resp_011",text:"肺サーファクタントは肺胞の表面張力を低下させ、肺胞の虚脱を防ぐ。",answer:true,explanation:"サーファクタントはリン脂質を主成分とし、肺胞の表面張力を下げて虚脱（無気肺）を防止する。"},
+    {id:"resp_012",text:"横隔膜は呼気時に収縮する。",answer:false,explanation:"横隔膜は吸気時に収縮して下降し、胸腔を広げる。呼気時には弛緩して上昇する。"},
+    {id:"resp_013",text:"安静呼吸における吸気は主に横隔膜と外肋間筋の収縮による。",answer:true,explanation:"安静吸気では横隔膜の収縮（約75%）と外肋間筋の収縮により胸腔が拡大する。"},
+    {id:"resp_014",text:"安静呼気は主に筋の弾性復元力によって受動的に行われる。",answer:true,explanation:"安静呼気は肺と胸壁の弾性収縮力により受動的に起こり、特別な筋収縮を必要としない。"},
+    {id:"resp_015",text:"努力呼気では内肋間筋や腹筋群が働く。",answer:true,explanation:"努力呼気では内肋間筋が肋骨を引き下げ、腹筋群が腹圧を上昇させて横隔膜を押し上げる。"},
+    {id:"resp_016",text:"胸腔内圧は常に大気圧より陽圧である。",answer:false,explanation:"胸腔内圧は常に大気圧より陰圧（低い）であり、これにより肺は膨張した状態を維持できる。"},
+    {id:"resp_017",text:"気胸では胸腔内に空気が入り、肺が虚脱する。",answer:true,explanation:"気胸により胸腔内圧が大気圧に近づくと、肺の弾性収縮力により肺は虚脱（しぼむ）する。"},
+    {id:"resp_018",text:"1回換気量は安静時で約500mLである。",answer:true,explanation:"成人の安静時1回換気量は約500mL（約6〜8mL/kg）である。"},
+    {id:"resp_019",text:"死腔量は約150mLであり、ガス交換に関与しない。",answer:true,explanation:"解剖学的死腔は気道のうちガス交換に関与しない部分で、約150mLである。"},
+    {id:"resp_020",text:"肺活量は最大吸気量と最大呼気量の和である。",answer:true,explanation:"肺活量は最大吸気位から最大呼気位までの呼出量で、1回換気量＋予備吸気量＋予備呼気量に等しい。"},
+    {id:"resp_021",text:"残気量はスパイロメトリーで直接測定できる。",answer:false,explanation:"残気量は最大呼気後も肺に残る空気で、スパイロメトリーでは測定できない。ヘリウム希釈法や体プレチスモグラフィで測定する。"},
+    {id:"resp_022",text:"機能的残気量は予備呼気量と残気量の和である。",answer:true,explanation:"機能的残気量（FRC）＝予備呼気量＋残気量であり、安静呼気位の肺内ガス量を示す。"},
+    {id:"resp_023",text:"ガス交換は主に濃度勾配（分圧差）による拡散で行われる。",answer:true,explanation:"肺胞でのO₂とCO₂の交換は分圧差に従った受動的拡散によって行われる。"},
+    {id:"resp_024",text:"肺胞気中のO₂分圧は約40mmHgである。",answer:false,explanation:"肺胞気中のO₂分圧は約100mmHgである。約40mmHgは静脈血のO₂分圧である。"},
+    {id:"resp_025",text:"静脈血のCO₂分圧は約46mmHgである。",answer:true,explanation:"静脈血のCO₂分圧は約46mmHg、肺胞気中は約40mmHgであり、この分圧差でCO₂が排出される。"},
+    {id:"resp_026",text:"酸素は血液中で主にヘモグロビンと結合して運搬される。",answer:true,explanation:"血中O₂の約98.5%はヘモグロビンと結合（HbO₂）して運ばれ、残りは血漿に溶解している。"},
+    {id:"resp_027",text:"酸素解離曲線はS字型（シグモイド型）を示す。",answer:true,explanation:"ヘモグロビンの協同結合によりO₂解離曲線はS字型となり、効率的なO₂の取り込みと放出が可能になる。"},
+    {id:"resp_028",text:"体温上昇やpH低下は酸素解離曲線を左方移動させる。",answer:false,explanation:"体温上昇・pH低下（アシドーシス）・CO₂増加・2,3-DPG増加は曲線を右方移動させ、組織へのO₂放出を促進する（ボーア効果）。"},
+    {id:"resp_029",text:"ボーア効果とは、CO₂濃度の上昇によりヘモグロビンの酸素親和性が低下する現象である。",answer:true,explanation:"CO₂増加やpH低下によりHbのO₂親和性が下がり、組織でO₂を放出しやすくなる現象をボーア効果という。"},
+    {id:"resp_030",text:"血液中のCO₂は大部分が重炭酸イオン（HCO₃⁻）として運搬される。",answer:true,explanation:"CO₂の約70%は赤血球内で炭酸脱水酵素によりHCO₃⁻に変換されて血漿中で運搬される。"},
+    {id:"resp_031",text:"呼吸中枢は大脳皮質に存在する。",answer:false,explanation:"呼吸中枢は延髄と橋に存在する。大脳皮質は随意的な呼吸調節に関与するが、自動的な呼吸リズムは脳幹が制御する。"},
+    {id:"resp_032",text:"延髄の呼吸中枢には吸息中枢と呼息中枢がある。",answer:true,explanation:"延髄には背側呼吸群（吸息中枢）と腹側呼吸群（呼息中枢）があり、呼吸リズムを生成する。"},
+    {id:"resp_033",text:"橋の呼吸調節中枢には持続性吸息中枢と呼吸調整中枢がある。",answer:true,explanation:"橋には持続性吸息中枢と呼吸調整中枢（ニューモタキシスセンター）があり、呼吸リズムの微調整を行う。"},
+    {id:"resp_034",text:"中枢化学受容器はCO₂分圧の変化に最も敏感に反応する。",answer:true,explanation:"延髄腹側の中枢化学受容器は脳脊髄液のpH変化（CO₂由来のH⁺）に敏感に反応し、換気量を調節する。"},
+    {id:"resp_035",text:"末梢化学受容器は頸動脈小体と大動脈小体に存在する。",answer:true,explanation:"頸動脈小体と大動脈小体はO₂分圧の低下やCO₂・H⁺の上昇を感知して呼吸中枢に情報を送る。"},
+    {id:"resp_036",text:"ヘーリング・ブロイエル反射は肺の過膨張を防ぐ反射である。",answer:true,explanation:"肺が過度に膨張すると肺伸展受容器が刺激され、迷走神経を介して吸息が抑制される（ヘーリング・ブロイエル反射）。"},
+    {id:"resp_037",text:"過換気症候群では血中CO₂が上昇する。",answer:false,explanation:"過換気ではCO₂が過剰に排出されるため血中CO₂分圧は低下し、呼吸性アルカローシスを起こす。"},
+    {id:"resp_038",text:"チェーン・ストークス呼吸では無呼吸と過呼吸が交互に繰り返される。",answer:true,explanation:"チェーン・ストークス呼吸は無呼吸→漸増呼吸→漸減呼吸を周期的に繰り返すパターンで、重症心不全や脳障害でみられる。"},
+    {id:"resp_039",text:"クスマウル呼吸は代謝性アシドーシスの代償としてみられる深く速い呼吸である。",answer:true,explanation:"糖尿病性ケトアシドーシスなどの代謝性アシドーシスではCO₂を排出するためにクスマウル呼吸（深大呼吸）が出現する。"},
+    {id:"resp_040",text:"成人の安静時呼吸数は毎分約12〜20回である。",answer:true,explanation:"成人の安静時呼吸数は12〜20回/分が正常範囲であり、これを超えると頻呼吸とされる。"},
+    {id:"resp_041",text:"胸膜は壁側胸膜と臓側胸膜の2層からなる。",answer:true,explanation:"胸膜は肺を覆う臓側胸膜と胸壁内面を覆う壁側胸膜からなり、その間の胸膜腔には少量の漿液がある。"},
+    {id:"resp_042",text:"胸膜腔には通常大量の漿液が存在する。",answer:false,explanation:"胸膜腔には正常では極少量（約10〜20mL）の漿液が存在し、呼吸時の摩擦を軽減する潤滑剤の役割を果たす。"},
+    {id:"resp_043",text:"肺動脈は静脈血を運ぶ。",answer:true,explanation:"肺動脈は右心室から肺へ静脈血（脱酸素化血）を送る。「動脈」だが運ぶのは静脈血である点に注意。"},
+    {id:"resp_044",text:"肺静脈は動脈血を左心房に運ぶ。",answer:true,explanation:"肺でガス交換を終えた動脈血（酸素化血）は肺静脈を通って左心房に戻る。"},
+    {id:"resp_045",text:"喉頭蓋は嚥下時に気管の入り口を閉鎖する。",answer:true,explanation:"嚥下時に喉頭蓋が倒れて喉頭口を塞ぎ、食物が気管に入るのを防ぐ（誤嚥防止）。"},
+    {id:"resp_046",text:"声帯は喉頭の中にあり、発声に関与する。",answer:true,explanation:"声帯は喉頭内の声帯ヒダにあり、呼気が通過する際に振動して声が生じる。"},
+    {id:"resp_047",text:"細気管支には軟骨が存在する。",answer:false,explanation:"細気管支（直径1mm以下）には軟骨がなく、平滑筋が気道径を調節する。喘息では平滑筋の攣縮で狭窄が起こる。"},
+    {id:"resp_048",text:"肺胞マクロファージは肺胞内の異物を貪食する。",answer:true,explanation:"肺胞マクロファージ（塵埃細胞）は肺胞内に存在し、細菌や異物を貪食して肺の防御に働く。"},
+    {id:"resp_049",text:"新生児呼吸窮迫症候群は肺サーファクタントの不足が原因である。",answer:true,explanation:"早産児ではII型肺胞上皮細胞の未熟さからサーファクタントが不足し、肺胞が虚脱して呼吸困難を起こす。"},
+    {id:"resp_050",text:"呼吸商（RQ）とは、単位時間あたりのO₂消費量をCO₂産生量で割った値である。",answer:false,explanation:"呼吸商（RQ）＝CO₂産生量÷O₂消費量である。分子と分母が逆。糖質のRQは約1.0、脂質は約0.7である。"}
+  ],
+  "消化器系": [
+    {id:"dige_001",text:"口腔から肛門までの消化管の全長は約9mである。",answer:true,explanation:"成人の消化管は口腔→咽頭→食道→胃→小腸→大腸→肛門で、全長約9m（死後弛緩時）である。"},
+    {id:"dige_002",text:"唾液アミラーゼ（プチアリン）はタンパク質を分解する。",answer:false,explanation:"唾液アミラーゼはデンプンをマルトース（麦芽糖）に分解する酵素である。タンパク質分解はペプシンなどが担う。"},
+    {id:"dige_003",text:"唾液の分泌は自律神経の支配を受け、交感神経・副交感神経の両方で促進される。",answer:true,explanation:"副交感神経は漿液性の唾液を大量に分泌させ、交感神経は粘液性の少量の唾液を分泌させる。両方とも分泌を促進する。"},
+    {id:"dige_004",text:"食道は気管の後方を下行する。",answer:true,explanation:"食道は気管の後方、脊柱の前方を下行し、横隔膜の食道裂孔を通って胃に至る。"},
+    {id:"dige_005",text:"食道には3つの生理的狭窄部がある。",answer:true,explanation:"食道の狭窄部は①食道入口部②気管分岐部（大動脈弓交差部）③横隔膜貫通部の3か所である。"},
+    {id:"dige_006",text:"食道の蠕動運動は随意運動である。",answer:false,explanation:"食道の蠕動運動は不随意運動であり、自律神経と筋層内の神経叢によって制御される。"},
+    {id:"dige_007",text:"胃の入口を幽門、出口を噴門という。",answer:false,explanation:"胃の入口（食道側）が噴門、出口（十二指腸側）が幽門である。設問は逆になっている。"},
+    {id:"dige_008",text:"胃底腺の主細胞はペプシノーゲンを分泌する。",answer:true,explanation:"主細胞はペプシンの前駆体であるペプシノーゲンを分泌し、塩酸によって活性型ペプシンに変換される。"},
+    {id:"dige_009",text:"胃底腺の壁細胞は塩酸と内因子を分泌する。",answer:true,explanation:"壁細胞は胃酸（HCl）とビタミンB12吸収に必要な内因子（キャッスル内因子）を分泌する。"},
+    {id:"dige_010",text:"ペプシンは中性（pH7）で最も活性が高い。",answer:false,explanation:"ペプシンの至適pHは約1.5〜2.0であり、強酸性環境で最も活性が高い。"},
+    {id:"dige_011",text:"胃の粘液は胃壁を自己消化から保護している。",answer:true,explanation:"胃粘膜の表面粘液細胞が分泌する粘液とHCO₃⁻が粘液‐重炭酸バリアを形成し、胃酸から粘膜を守る。"},
+    {id:"dige_012",text:"十二指腸は小腸の中で最も長い部分である。",answer:false,explanation:"十二指腸は約25cm（指12本分）で小腸の中で最も短い。小腸で最も長いのは回腸である。"},
+    {id:"dige_013",text:"十二指腸のファーター乳頭には総胆管と主膵管が開口する。",answer:true,explanation:"ファーター乳頭（大十二指腸乳頭）に総胆管と主膵管が合流して開口し、胆汁と膵液が分泌される。"},
+    {id:"dige_014",text:"小腸の絨毛は表面積を拡大し、栄養素の吸収効率を高める。",answer:true,explanation:"小腸粘膜の輪状ヒダ・絨毛・微絨毛により表面積はテニスコート1面分（約200m²）に拡大される。"},
+    {id:"dige_015",text:"空腸と回腸の境界には明確な解剖学的境界がある。",answer:false,explanation:"空腸と回腸の間には明確な境界はなく、徐々に移行する。一般に口側2/5を空腸、肛門側3/5を回腸とする。"},
+    {id:"dige_016",text:"回腸末端にはパイエル板（集合リンパ小節）が多く存在する。",answer:true,explanation:"パイエル板は回腸に多い腸管関連リンパ組織で、腸管免疫において重要な役割を果たす。"},
+    {id:"dige_017",text:"ビタミンB12は主に回腸末端で吸収される。",answer:true,explanation:"ビタミンB12は内因子と結合した複合体として回腸末端の特異的受容体から吸収される。"},
+    {id:"dige_018",text:"大腸は小腸より長い。",answer:false,explanation:"大腸は約1.5mで小腸（約6〜7m）より短い。大腸は小腸より太いが長さは短い。"},
+    {id:"dige_019",text:"大腸には結腸ヒモ・結腸膨起・腹膜垂の3つの特徴がある。",answer:true,explanation:"大腸壁の縦走筋が3本の帯状（結腸ヒモ）に集まり、その間が膨出（結腸膨起）し、腹膜垂が付着する。"},
+    {id:"dige_020",text:"虫垂は上行結腸の先端に付着している。",answer:false,explanation:"虫垂は盲腸の先端に付着している。回盲弁の約2〜3cm下方に位置する。"},
+    {id:"dige_021",text:"大腸の主な機能は水分と電解質の吸収である。",answer:true,explanation:"大腸では主に水分とNa⁺などの電解質が吸収され、消化物が固形の便に形成される。"},
+    {id:"dige_022",text:"直腸には内肛門括約筋（平滑筋）と外肛門括約筋（横紋筋）がある。",answer:true,explanation:"内肛門括約筋は不随意筋（平滑筋）、外肛門括約筋は随意筋（横紋筋）であり、排便の調節に関与する。"},
+    {id:"dige_023",text:"肝臓は右上腹部に位置し、体内最大の実質臓器である。",answer:true,explanation:"肝臓は右季肋部に位置し、成人で約1.2〜1.5kgあり、体内最大の実質臓器（腺）である。"},
+    {id:"dige_024",text:"肝臓の機能的単位は肝小葉である。",answer:true,explanation:"肝小葉は中心静脈を中心に肝細胞が放射状に配列した六角柱状の構造で、肝臓の機能的単位である。"},
+    {id:"dige_025",text:"肝臓は門脈と肝動脈の二重血行支配を受ける。",answer:true,explanation:"肝臓には門脈（約75%、栄養豊富な静脈血）と肝動脈（約25%、酸素豊富な動脈血）の二重血行支配がある。"},
+    {id:"dige_026",text:"肝臓はアルブミンやフィブリノーゲンなどの血漿タンパク質を合成する。",answer:true,explanation:"肝臓は血漿タンパク質（アルブミン、凝固因子、補体など）の大部分を合成する重要な臓器である。"},
+    {id:"dige_027",text:"ビリルビンは肝臓でグルクロン酸抱合を受けて水溶性となる。",answer:true,explanation:"間接ビリルビン（非抱合型）は肝臓でグルクロン酸抱合され直接ビリルビン（抱合型）となり、胆汁中に排泄される。"},
+    {id:"dige_028",text:"肝臓はアンモニアを尿酸に変換して解毒する。",answer:false,explanation:"肝臓はアンモニアを尿素回路（オルニチン回路）で尿素に変換する。尿酸はプリン体の代謝産物である。"},
+    {id:"dige_029",text:"胆汁は胆嚢で産生される。",answer:false,explanation:"胆汁は肝臓（肝細胞）で産生され、胆嚢では濃縮・貯蔵される。胆嚢は胆汁を作らない。"},
+    {id:"dige_030",text:"胆汁酸は脂肪を乳化して消化・吸収を助ける。",answer:true,explanation:"胆汁酸は脂肪を細かいミセルに乳化し、リパーゼの作用面積を増やして脂肪の消化吸収を促進する。"},
+    {id:"dige_031",text:"胆汁には消化酵素が含まれている。",answer:false,explanation:"胆汁には消化酵素は含まれない。胆汁酸・ビリルビン・コレステロール・リン脂質などが含まれる。"},
+    {id:"dige_032",text:"膵臓は後腹膜に位置する臓器である。",answer:true,explanation:"膵臓は後腹膜臓器であり、胃の後方で脊柱の前面に横たわり、頭部は十二指腸に囲まれている。"},
+    {id:"dige_033",text:"膵臓は外分泌腺と内分泌腺の両方の機能を持つ。",answer:true,explanation:"膵臓の外分泌部（腺房細胞）は膵液を分泌し、内分泌部（ランゲルハンス島）はインスリンなどのホルモンを分泌する。"},
+    {id:"dige_034",text:"膵液は弱酸性である。",answer:false,explanation:"膵液はHCO₃⁻を豊富に含むアルカリ性（pH約8）の消化液で、胃酸を中和して小腸内を適切なpHに保つ。"},
+    {id:"dige_035",text:"トリプシンはタンパク質を分解する膵酵素である。",answer:true,explanation:"トリプシンは膵液中のタンパク質分解酵素で、トリプシノーゲンとして分泌されエンテロキナーゼにより活性化される。"},
+    {id:"dige_036",text:"膵リパーゼは脂肪をモノグリセリドと脂肪酸に分解する。",answer:true,explanation:"膵リパーゼはトリグリセリドを2‐モノグリセリドと脂肪酸に分解する主要な脂肪分解酵素である。"},
+    {id:"dige_037",text:"セクレチンは十二指腸から分泌され、膵液中のHCO₃⁻分泌を促進する。",answer:true,explanation:"十二指腸の酸性内容物がS細胞を刺激してセクレチンを分泌させ、膵臓からのHCO₃⁻に富む膵液分泌を促す。"},
+    {id:"dige_038",text:"コレシストキニン（CCK）は胆嚢を収縮させ、胆汁の排出を促す。",answer:true,explanation:"CCKは十二指腸のI細胞から分泌され、胆嚢収縮と膵酵素分泌を促進する。"},
+    {id:"dige_039",text:"ガストリンは胃のG細胞から分泌され、胃酸分泌を促進する。",answer:true,explanation:"ガストリンは幽門前庭部のG細胞から分泌されるホルモンで、壁細胞に作用して胃酸分泌を促進する。"},
+    {id:"dige_040",text:"脂溶性ビタミン（A・D・E・K）は主に大腸で吸収される。",answer:false,explanation:"脂溶性ビタミンは胆汁酸のミセルとともに主に小腸（空腸）で吸収される。大腸での吸収ではない。"},
+    {id:"dige_041",text:"グルコースやアミノ酸は小腸の毛細血管から門脈を経て肝臓に運ばれる。",answer:true,explanation:"糖質とアミノ酸は小腸絨毛の毛細血管に吸収され、門脈を経て肝臓に送られ代謝される。"},
+    {id:"dige_042",text:"脂肪の吸収経路は主にリンパ管（乳び管）を経由する。",answer:true,explanation:"長鎖脂肪酸とモノグリセリドは小腸上皮でカイロミクロンに再合成され、中心乳び管からリンパ系に入る。"},
+    {id:"dige_043",text:"蠕動運動は消化管の口側が収縮し肛門側が弛緩する運動である。",answer:true,explanation:"蠕動運動は口側の輪走筋収縮と肛門側の弛緩が協調して内容物を肛門方向に送る推進運動である。"},
+    {id:"dige_044",text:"分節運動は内容物を肛門側に推進する運動である。",answer:false,explanation:"分節運動は腸管の一定間隔での収縮・弛緩の繰り返しで、内容物を混合・攪拌する運動であり推進は主目的ではない。"},
+    {id:"dige_045",text:"排便反射の中枢は仙髄にある。",answer:true,explanation:"便が直腸に到達すると直腸壁が伸展し、仙髄の排便中枢を介した反射で内肛門括約筋が弛緩し便意が生じる。"},
+    {id:"dige_046",text:"腸管神経系はアウエルバッハ神経叢とマイスナー神経叢からなる。",answer:true,explanation:"アウエルバッハ神経叢（筋層間）は運動を、マイスナー神経叢（粘膜下）は分泌と血流を主に調節する。"},
+    {id:"dige_047",text:"副交感神経の興奮は消化管の運動と分泌を抑制する。",answer:false,explanation:"副交感神経（迷走神経など）は消化管の運動・分泌を促進する。抑制するのは交感神経である。"},
+    {id:"dige_048",text:"腹膜は腹腔内の臓器を覆う漿膜であり、壁側腹膜と臓側腹膜がある。",answer:true,explanation:"腹膜は壁側腹膜（腹壁内面）と臓側腹膜（臓器表面）からなり、その間の腹膜腔には少量の漿液がある。"},
+    {id:"dige_049",text:"腸肝循環とは胆汁酸が小腸で再吸収され肝臓に戻る循環のことである。",answer:true,explanation:"胆汁酸の約95%は回腸末端で再吸収され、門脈を経て肝臓に戻り再利用される。これを腸肝循環という。"},
+    {id:"dige_050",text:"マルターゼはラクトース（乳糖）を分解する酵素である。",answer:false,explanation:"マルターゼはマルトース（麦芽糖）をグルコースに分解する。ラクトースを分解するのはラクターゼである。"}
+  ],
+  "生殖器系": [
+    {id:"repr_001",text:"精巣は腹腔内に位置する。",answer:false,explanation:"精巣は陰嚢内に位置する。体温より2〜3℃低い環境が精子形成に必要なため、腹腔外に下降している。"},
+    {id:"repr_002",text:"精子は精巣の精細管（曲精細管）で産生される。",answer:true,explanation:"精細管の壁にある精祖細胞が減数分裂を経て精子に分化する。この過程を精子形成という。"},
+    {id:"repr_003",text:"精子の成熟と貯蔵は主に精嚢で行われる。",answer:false,explanation:"精子の成熟と貯蔵は精巣上体（副睾丸）で行われる。精嚢は精液の液体成分を分泌する付属腺である。"},
+    {id:"repr_004",text:"セルトリ細胞は精子形成を支持・栄養する細胞である。",answer:true,explanation:"セルトリ細胞（支持細胞）は精細管内にあり、精子形成細胞を支持・栄養し、血液精巣関門を形成する。"},
+    {id:"repr_005",text:"ライディッヒ細胞はテストステロンを分泌する。",answer:true,explanation:"ライディッヒ細胞（間質細胞）は精細管の間の間質に存在し、LHの刺激でテストステロンを分泌する。"},
+    {id:"repr_006",text:"テストステロンは精子形成と男性二次性徴の発現に関与する。",answer:true,explanation:"テストステロンは精子形成を促進し、筋肉増大・体毛発育・声変わりなどの男性二次性徴を誘導する。"},
+    {id:"repr_007",text:"前立腺は膀胱の下方で尿道を取り囲むように位置する。",answer:true,explanation:"前立腺は膀胱底部の直下に位置し、尿道の起始部を取り囲む栗の実大の外分泌腺である。"},
+    {id:"repr_008",text:"精液の大部分は精巣で産生される。",answer:false,explanation:"精液の約60〜70%は精嚢液、約20〜30%は前立腺液で、精巣由来の精子は全体の数%にすぎない。"},
+    {id:"repr_009",text:"精嚢はフルクトース（果糖）を含む分泌液を産生する。",answer:true,explanation:"精嚢液にはフルクトースが豊富に含まれ、精子のエネルギー源として利用される。"},
+    {id:"repr_010",text:"精管は精巣上体から続き、鼠径管を通って骨盤腔内に入る。",answer:true,explanation:"精管は精巣上体尾部から始まり、精索の一部として鼠径管を通過し、骨盤腔内で射精管に合流する。"},
+    {id:"repr_011",text:"卵巣は子宮の両側に位置し、卵子の産生とホルモン分泌を行う。",answer:true,explanation:"卵巣は骨盤腔内の子宮両側に位置し、卵子を排出するとともにエストロゲンとプロゲステロンを分泌する。"},
+    {id:"repr_012",text:"卵巣から排卵された卵子は卵管采によって卵管内に取り込まれる。",answer:true,explanation:"卵管の先端にある卵管采（卵管漏斗のひだ）が排卵された卵子をキャッチして卵管内に導く。"},
+    {id:"repr_013",text:"受精は通常子宮腔内で起こる。",answer:false,explanation:"受精は通常、卵管膨大部で起こる。受精卵はその後分裂しながら卵管を移動し子宮に着床する。"},
+    {id:"repr_014",text:"子宮は膀胱と直腸の間に位置する。",answer:true,explanation:"子宮は骨盤腔内で膀胱の後方、直腸の前方に位置し、やや前傾前屈の姿勢をとる。"},
+    {id:"repr_015",text:"子宮壁は外側から漿膜・筋層・内膜の3層からなる。",answer:true,explanation:"子宮壁は外膜（漿膜・腹膜）、筋層（平滑筋の厚い層）、内膜（子宮内膜）の3層構造である。"},
+    {id:"repr_016",text:"月経時に剥離するのは子宮内膜の基底層である。",answer:false,explanation:"月経時に剥離・出血するのは子宮内膜の機能層である。基底層は剥離せず、機能層の再生に関与する。"},
+    {id:"repr_017",text:"子宮頸管の粘液は排卵期に粘稠度が増し、精子の通過を妨げる。",answer:false,explanation:"排卵期には頸管粘液は水様でサラサラになり、精子が通過しやすくなる。黄体期に粘稠度が増す。"},
+    {id:"repr_018",text:"腟は子宮と外陰部をつなぐ管状の器官である。",answer:true,explanation:"腟は子宮頸部から外陰部に至る約7〜10cmの筋性管で、産道・月経血の排出路・交接器としての機能を持つ。"},
+    {id:"repr_019",text:"バルトリン腺は腟前庭に開口し、粘液を分泌する。",answer:true,explanation:"バルトリン腺（大前庭腺）は腟口の両側に位置し、性的興奮時に粘液を分泌して潤滑を助ける。"},
+    {id:"repr_020",text:"卵胞の発育はFSH（卵胞刺激ホルモン）によって促進される。",answer:true,explanation:"下垂体前葉から分泌されるFSHが卵巣の卵胞発育を刺激し、卵胞からのエストロゲン分泌を促進する。"},
+    {id:"repr_021",text:"排卵はLH（黄体形成ホルモン）サージによって誘発される。",answer:true,explanation:"月経周期の中間期にLHが急激に上昇（LHサージ）し、成熟卵胞が破裂して排卵が起こる。"},
+    {id:"repr_022",text:"排卵後の卵胞は白体に変化する。",answer:false,explanation:"排卵後の卵胞は黄体に変化し、プロゲステロンとエストロゲンを分泌する。妊娠しなければ白体に退縮する。"},
+    {id:"repr_023",text:"黄体はプロゲステロンを分泌し、子宮内膜の分泌期変化を促す。",answer:true,explanation:"黄体から分泌されるプロゲステロンは子宮内膜を分泌期に変化させ、受精卵の着床に備える。"},
+    {id:"repr_024",text:"エストロゲンは子宮内膜の増殖を促進する。",answer:true,explanation:"卵胞期にエストロゲンが分泌され、子宮内膜の増殖（増殖期）を促し、内膜を厚くする。"},
+    {id:"repr_025",text:"月経周期は通常約28日で、排卵は周期の約14日目に起こる。",answer:true,explanation:"典型的な28日周期では排卵は約14日目に起こる。ただし個人差があり、黄体期は約14日で比較的一定である。"},
+    {id:"repr_026",text:"プロゲステロンは体温を低下させる作用がある。",answer:false,explanation:"プロゲステロンには体温上昇作用があり、排卵後の黄体期に基礎体温が約0.3〜0.5℃上昇する（高温相）。"},
+    {id:"repr_027",text:"月経は子宮内膜の機能層が剥離して出血する現象である。",answer:true,explanation:"妊娠が成立しないと黄体が退縮し、ホルモン分泌が低下して子宮内膜機能層が剥離・出血する。これが月経である。"},
+    {id:"repr_028",text:"精子のアクロソーム反応は卵子の透明帯を通過するために必要である。",answer:true,explanation:"精子の先体（アクロソーム）から放出される酵素が卵子の透明帯を消化し、精子が卵子に到達できるようにする。"},
+    {id:"repr_029",text:"受精卵の着床は通常受精後約6〜7日で起こる。",answer:true,explanation:"受精卵は分裂しながら卵管を移動し、胚盤胞の段階で約6〜7日後に子宮内膜に着床する。"},
+    {id:"repr_030",text:"胎盤はhCG（ヒト絨毛性ゴナドトロピン）を分泌する。",answer:true,explanation:"着床後の絨毛（のち胎盤）からhCGが分泌され、黄体を維持してプロゲステロン分泌を持続させる。妊娠検査はhCGを検出する。"},
+    {id:"repr_031",text:"胎盤は母体血と胎児血が直接混合する構造である。",answer:false,explanation:"胎盤では母体血と胎児血は直接混合せず、絨毛の膜を介して物質交換が行われる（胎盤関門）。"},
+    {id:"repr_032",text:"臍帯には2本の臍動脈と1本の臍静脈が含まれる。",answer:true,explanation:"臍帯には2本の臍動脈（胎児→胎盤、静脈血）と1本の臍静脈（胎盤→胎児、動脈血）が通る。"},
+    {id:"repr_033",text:"臍静脈は胎児に酸素豊富な血液を運ぶ。",answer:true,explanation:"臍静脈は胎盤でガス交換を終えた酸素豊富な血液を胎児に送る。名前は静脈だが動脈血を含む。"},
+    {id:"repr_034",text:"羊水は胎児の保護・体温維持・運動空間の確保などの役割がある。",answer:true,explanation:"羊水は胎児を外力から保護し、体温を維持し、胎児が自由に動ける空間を確保する。"},
+    {id:"repr_035",text:"オキシトシンは分娩時に子宮筋の収縮を促進する。",answer:true,explanation:"下垂体後葉から分泌されるオキシトシンは子宮平滑筋の収縮を強力に促進し、分娩の進行に不可欠である。"},
+    {id:"repr_036",text:"プロラクチンは下垂体後葉から分泌され、乳汁産生を促す。",answer:false,explanation:"プロラクチンは下垂体前葉から分泌される。乳腺に作用して乳汁の産生を促進するホルモンである。"},
+    {id:"repr_037",text:"乳汁の射出（射乳反射）にはオキシトシンが関与する。",answer:true,explanation:"乳児の吸啜刺激により下垂体後葉からオキシトシンが分泌され、乳腺の筋上皮細胞を収縮させて射乳が起こる。"},
+    {id:"repr_038",text:"減数分裂により、生殖細胞の染色体数は半減して23本になる。",answer:true,explanation:"減数分裂（第一分裂・第二分裂）により染色体数は46本（2n）から23本（n）に半減し、配偶子が形成される。"},
+    {id:"repr_039",text:"卵子の減数分裂は排卵時に完了する。",answer:false,explanation:"卵子の第二減数分裂は排卵時には中期で停止しており、精子の侵入をきっかけに完了する。"},
+    {id:"repr_040",text:"性別はY染色体上のSRY遺伝子によって決定される。",answer:true,explanation:"SRY遺伝子はY染色体短腕に存在し、精巣決定因子をコードする。この遺伝子の有無が性分化の方向を決める。"},
+    {id:"repr_041",text:"女性の外性器を総称して外陰（がいいん）という。",answer:true,explanation:"外陰は大陰唇・小陰唇・陰核・腟前庭・バルトリン腺などの女性外性器の総称である。"},
+    {id:"repr_042",text:"精子の寿命は女性生殖管内で約24時間である。",answer:false,explanation:"精子は女性生殖管内で約48〜72時間（最大5日程度）生存可能である。約24時間は排卵後の卵子の受精可能時間である。"},
+    {id:"repr_043",text:"子宮底は子宮の下端部分を指す。",answer:false,explanation:"子宮底は子宮の上端（卵管が開口する部分より上の丸みを帯びた部分）を指す。下端は子宮頸部である。"},
+    {id:"repr_044",text:"乳腺は変形した汗腺（アポクリン腺）の一種である。",answer:true,explanation:"乳腺は発生学的にアポクリン汗腺が特殊化したものであり、乳汁を分泌する外分泌腺である。"},
+    {id:"repr_045",text:"GnRH（性腺刺激ホルモン放出ホルモン）は視床下部から分泌される。",answer:true,explanation:"視床下部からパルス状に分泌されるGnRHが下垂体前葉に作用し、FSHとLHの分泌を調節する。"},
+    {id:"repr_046",text:"インヒビンはFSHの分泌を促進するホルモンである。",answer:false,explanation:"インヒビンはセルトリ細胞や顆粒膜細胞から分泌され、下垂体前葉に作用してFSHの分泌を抑制する。"},
+    {id:"repr_047",text:"妊娠中、胎盤は大量のエストロゲンとプロゲステロンを分泌する。",answer:true,explanation:"妊娠中期以降は胎盤が主なホルモン産生源となり、大量のエストロゲンとプロゲステロンを分泌して妊娠を維持する。"},
+    {id:"repr_048",text:"多胎妊娠のうち、一卵性双生児は2つの卵子がそれぞれ受精して生じる。",answer:false,explanation:"一卵性双生児は1つの受精卵が発生初期に分離して生じる。2つの卵子がそれぞれ受精するのは二卵性双生児である。"},
+    {id:"repr_049",text:"更年期にはエストロゲン分泌が低下し、FSHとLHが上昇する。",answer:true,explanation:"卵巣機能の低下によりエストロゲンが減少し、ネガティブフィードバックが弱まってFSH・LHが上昇する。"},
+    {id:"repr_050",text:"前立腺肥大症は高齢男性に多く、尿道を圧迫して排尿障害を起こす。",answer:true,explanation:"加齢に伴い前立腺の移行域が肥大し、内部を通る尿道を圧迫して頻尿・残尿感・排尿困難などを引き起こす。"}
+  ],
+  "内分泌系": [
+    {id:"endo_001",text:"ホルモンは内分泌腺から血液中に分泌される化学伝達物質である。",answer:true,explanation:"ホルモンは導管を持たない内分泌腺から血液中に放出され、標的臓器に作用する化学伝達物質である。"},
+    {id:"endo_002",text:"ホルモンは微量で強い生理作用を発揮する。",answer:true,explanation:"ホルモンは血中でng〜pg/mLという極めて微量な濃度で標的細胞の受容体に結合し、強力な生理作用を示す。"},
+    {id:"endo_003",text:"水溶性ホルモンは細胞膜を通過して細胞内受容体に結合する。",answer:false,explanation:"水溶性ホルモン（ペプチドホルモンなど）は細胞膜を通過できず、細胞膜上の受容体に結合して作用する。細胞内受容体に結合するのは脂溶性ホルモンである。"},
+    {id:"endo_004",text:"ステロイドホルモンは核内受容体に結合して遺伝子発現を調節する。",answer:true,explanation:"ステロイドホルモンは脂溶性で細胞膜を通過し、細胞質や核内の受容体に結合して転写を調節する。"},
+    {id:"endo_005",text:"視床下部は下垂体ホルモンの分泌を調節する上位中枢である。",answer:true,explanation:"視床下部は放出ホルモンや抑制ホルモンを分泌して下垂体前葉を制御し、神経分泌で下垂体後葉ホルモンも産生する。"},
+    {id:"endo_006",text:"下垂体は蝶形骨のトルコ鞍に収まっている。",answer:true,explanation:"下垂体は頭蓋底の蝶形骨にあるトルコ鞍（下垂体窩）に位置する小さな内分泌腺である。"},
+    {id:"endo_007",text:"下垂体前葉は神経組織由来である。",answer:false,explanation:"下垂体前葉は口蓋外胚葉（ラトケ嚢）由来の腺組織である。神経組織由来なのは下垂体後葉である。"},
+    {id:"endo_008",text:"成長ホルモン（GH）は下垂体前葉から分泌される。",answer:true,explanation:"GHは下垂体前葉の成長ホルモン分泌細胞から分泌され、骨・筋肉の成長や代謝調節に関与する。"},
+    {id:"endo_009",text:"成長ホルモンの過剰分泌は小児期では巨人症、成人期では先端肥大症を起こす。",answer:true,explanation:"骨端線閉鎖前のGH過剰は巨人症、閉鎖後は手足・顎・鼻などが肥大する先端肥大症（アクロメガリー）を起こす。"},
+    {id:"endo_010",text:"プロラクチンは乳汁の産生を促進するホルモンである。",answer:true,explanation:"プロラクチンは下垂体前葉から分泌され、乳腺に作用して乳汁の合成・分泌を促進する。"},
+    {id:"endo_011",text:"ACTH（副腎皮質刺激ホルモン）は副腎髄質を刺激する。",answer:false,explanation:"ACTHは下垂体前葉から分泌され、副腎皮質（特に束状帯）を刺激してコルチゾールの分泌を促す。副腎髄質ではない。"},
+    {id:"endo_012",text:"TSH（甲状腺刺激ホルモン）は下垂体前葉から分泌される。",answer:true,explanation:"TSHは下垂体前葉から分泌され、甲状腺に作用して甲状腺ホルモン（T3・T4）の合成・分泌を促進する。"},
+    {id:"endo_013",text:"オキシトシンとバソプレシンは下垂体後葉で合成される。",answer:false,explanation:"オキシトシンとバソプレシンは視床下部の神経細胞体で合成され、軸索輸送で下垂体後葉に運ばれて貯蔵・分泌される。"},
+    {id:"endo_014",text:"バソプレシン（ADH）は腎臓の集合管で水の再吸収を促進する。",answer:true,explanation:"ADHは集合管のV2受容体に作用してアクアポリン2を発現させ、水の再吸収を促進して尿量を減少させる。"},
+    {id:"endo_015",text:"尿崩症はADHの分泌不足または作用不全で多尿をきたす疾患である。",answer:true,explanation:"中枢性尿崩症はADH分泌不足、腎性尿崩症はADHへの反応不全により、大量の希釈尿が排泄される。"},
+    {id:"endo_016",text:"甲状腺は気管の前面に位置し、蝶が羽を広げた形をしている。",answer:true,explanation:"甲状腺は頸部前面で気管の前方に位置し、左右の葉が峡部でつながった蝶形（H字形）の臓器である。"},
+    {id:"endo_017",text:"甲状腺ホルモンの合成にはヨウ素が必要である。",answer:true,explanation:"甲状腺ホルモン（T3・T4）はアミノ酸チロシンにヨウ素が結合して合成されるため、ヨウ素は必須の原料である。"},
+    {id:"endo_018",text:"T3はT4より生理活性が弱い。",answer:false,explanation:"T3（トリヨードサイロニン）はT4（サイロキシン）より生理活性が3〜5倍強い。T4は末梢でT3に変換されて作用する。"},
+    {id:"endo_019",text:"甲状腺ホルモンは基礎代謝率を上昇させる。",answer:true,explanation:"甲状腺ホルモンは全身の細胞の代謝を活発にし、酸素消費量と熱産生を増加させて基礎代謝率を上昇させる。"},
+    {id:"endo_020",text:"バセドウ病は甲状腺機能低下症の代表的疾患である。",answer:false,explanation:"バセドウ病はTSH受容体に対する自己抗体により甲状腺が持続刺激される甲状腺機能亢進症の代表疾患である。"},
+    {id:"endo_021",text:"橋本病は自己免疫性の慢性甲状腺炎であり、甲状腺機能低下症の原因となる。",answer:true,explanation:"橋本病は甲状腺に対する自己免疫反応により慢性炎症が起こり、徐々に甲状腺が破壊されて機能低下に至る。"},
+    {id:"endo_022",text:"カルシトニンは甲状腺の傍濾胞細胞（C細胞）から分泌される。",answer:true,explanation:"カルシトニンはC細胞から分泌され、骨吸収を抑制して血中カルシウム濃度を低下させるホルモンである。"},
+    {id:"endo_023",text:"パラソルモン（PTH）は甲状腺から分泌される。",answer:false,explanation:"PTHは副甲状腺（上皮小体）から分泌される。骨吸収促進・腎でのCa再吸収促進により血中Ca濃度を上昇させる。"},
+    {id:"endo_024",text:"パラソルモンは血中カルシウム濃度を上昇させる。",answer:true,explanation:"PTHは骨からのCa放出促進、腎でのCa再吸収促進、ビタミンD活性化による腸管からのCa吸収促進で血中Caを上昇させる。"},
+    {id:"endo_025",text:"副甲状腺は通常4個あり、甲状腺の後面に位置する。",answer:true,explanation:"副甲状腺（上皮小体）は通常4個（上下各2個）が甲状腺の後面に付着する米粒大の小さな内分泌腺である。"},
+    {id:"endo_026",text:"副腎は腎臓の上方に位置し、皮質と髄質からなる。",answer:true,explanation:"副腎は左右の腎臓の上端に接して位置し、外側の副腎皮質と内側の副腎髄質という異なる機能組織からなる。"},
+    {id:"endo_027",text:"副腎皮質は外側から球状帯・束状帯・網状帯の3層に分かれる。",answer:true,explanation:"副腎皮質は球状帯（アルドステロン）、束状帯（コルチゾール）、網状帯（アンドロゲン）の3層構造である。"},
+    {id:"endo_028",text:"アルドステロンは副腎皮質の束状帯から分泌される。",answer:false,explanation:"アルドステロンは副腎皮質の球状帯から分泌される鉱質コルチコイドで、腎でのNa再吸収とK排泄を促進する。"},
+    {id:"endo_029",text:"コルチゾールは糖質コルチコイドの代表であり、血糖値を上昇させる。",answer:true,explanation:"コルチゾールは肝での糖新生促進、末梢での糖利用抑制、タンパク質分解促進などにより血糖値を上昇させる。"},
+    {id:"endo_030",text:"コルチゾールの慢性過剰はクッシング症候群を引き起こす。",answer:true,explanation:"コルチゾール過剰により中心性肥満・満月様顔貌・野牛肩・高血糖・骨粗鬆症などのクッシング症候群が生じる。"},
+    {id:"endo_031",text:"副腎髄質はアドレナリンとノルアドレナリンを分泌する。",answer:true,explanation:"副腎髄質のクロム親和性細胞は交感神経の刺激でアドレナリン（約80%）とノルアドレナリン（約20%）を分泌する。"},
+    {id:"endo_032",text:"アドレナリンは血糖値を低下させる作用がある。",answer:false,explanation:"アドレナリンは肝グリコーゲン分解を促進して血糖値を上昇させる。闘争・逃走反応でエネルギー動員に働く。"},
+    {id:"endo_033",text:"副腎髄質は交感神経節後ニューロンに相当する。",answer:true,explanation:"副腎髄質は発生学的に交感神経節後ニューロンに相当し、アセチルコリンの刺激でカテコールアミンを血中に直接放出する。"},
+    {id:"endo_034",text:"インスリンは膵臓のランゲルハンス島β細胞から分泌される。",answer:true,explanation:"β細胞は血糖上昇に反応してインスリンを分泌し、細胞へのグルコース取り込みを促進して血糖値を下げる。"},
+    {id:"endo_035",text:"グルカゴンはランゲルハンス島α細胞から分泌され、血糖値を低下させる。",answer:false,explanation:"グルカゴンはα細胞から分泌されるが、肝グリコーゲン分解と糖新生を促進して血糖値を上昇させるホルモンである。"},
+    {id:"endo_036",text:"インスリンは血糖値を下げることができる唯一のホルモンである。",answer:true,explanation:"血糖値を下げるホルモンはインスリンのみである。一方、血糖を上げるホルモンはグルカゴン・コルチゾール・アドレナリンなど複数ある。"},
+    {id:"endo_037",text:"1型糖尿病はインスリン抵抗性が主な原因である。",answer:false,explanation:"1型糖尿病は自己免疫などによるβ細胞の破壊でインスリン分泌が絶対的に不足する。インスリン抵抗性が主因なのは2型糖尿病である。"},
+    {id:"endo_038",text:"ソマトスタチンは膵臓のδ細胞から分泌され、インスリンとグルカゴンの両方を抑制する。",answer:true,explanation:"ランゲルハンス島δ細胞のソマトスタチンはインスリン・グルカゴン双方の分泌を抑制し、膵内分泌を調節する。"},
+    {id:"endo_039",text:"メラトニンは松果体から分泌され、概日リズムの調節に関与する。",answer:true,explanation:"松果体から夜間に多く分泌されるメラトニンは、睡眠覚醒リズム（サーカディアンリズム）の調節に重要な役割を果たす。"},
+    {id:"endo_040",text:"胸腺はT細胞の分化・成熟に関与する器官である。",answer:true,explanation:"胸腺は骨髄由来の前駆細胞をT細胞に分化・成熟させる一次リンパ器官で、加齢とともに退縮する。"},
+    {id:"endo_041",text:"エリスロポエチンは肝臓で主に産生される。",answer:false,explanation:"エリスロポエチンは主に腎臓（尿細管周囲の間質細胞）で産生され、骨髄での赤血球産生を促進する。"},
+    {id:"endo_042",text:"レニンは腎臓の傍糸球体細胞から分泌される酵素である。",answer:true,explanation:"レニンは糸球体輸入細動脈の傍糸球体細胞から分泌され、アンギオテンシノーゲンをアンギオテンシンIに変換する。"},
+    {id:"endo_043",text:"アンギオテンシンIIは血管を拡張させ、血圧を低下させる。",answer:false,explanation:"アンギオテンシンIIは強力な血管収縮作用を持ち、血圧を上昇させる。またアルドステロン分泌も促進する。"},
+    {id:"endo_044",text:"レプチンは脂肪細胞から分泌され、食欲を抑制する。",answer:true,explanation:"レプチンは白色脂肪細胞から分泌されるホルモンで、視床下部に作用して食欲を抑制しエネルギー消費を促進する。"},
+    {id:"endo_045",text:"ネガティブフィードバックとは、ホルモンが自身の分泌をさらに促進する仕組みである。",answer:false,explanation:"ネガティブフィードバックはホルモンの産物が上位の分泌を抑制する仕組みである。自身を促進するのはポジティブフィードバックである。"},
+    {id:"endo_046",text:"ビタミンDは腎臓で活性型に変換され、腸管からのカルシウム吸収を促進する。",answer:true,explanation:"ビタミンDは肝臓で25位、腎臓で1α位が水酸化されて活性型（1,25-(OH)₂D₃）となり、腸管でのCa吸収を促す。"},
+    {id:"endo_047",text:"心房性ナトリウム利尿ペプチド（ANP）は心房から分泌され、Na排泄と利尿を促進する。",answer:true,explanation:"ANPは心房壁の伸展により分泌され、腎でのNa・水の排泄を促し血圧を低下させるホルモンである。"},
+    {id:"endo_048",text:"アジソン病は副腎皮質ホルモンの過剰分泌で起こる疾患である。",answer:false,explanation:"アジソン病は副腎皮質の機能低下（慢性副腎不全）により、コルチゾールやアルドステロンが不足する疾患である。"},
+    {id:"endo_049",text:"甲状腺ホルモンは胎児期の脳の発達に不可欠である。",answer:true,explanation:"胎児期・乳児期に甲状腺ホルモンが不足すると中枢神経の発達が障害され、クレチン症（先天性甲状腺機能低下症）を起こす。"},
+    {id:"endo_050",text:"インスリンはアミノ酸の細胞内取り込みとタンパク質合成を促進する。",answer:true,explanation:"インスリンは糖代謝だけでなく、アミノ酸の細胞内取り込みとタンパク質合成も促進する同化ホルモンである。"}
+  ],
+  "感覚器系": [
+    {id:"sens_001",text:"感覚受容器は刺激の種類に応じた適刺激を持つ。",answer:true,explanation:"各受容器には最も感受性の高い特定の刺激（適刺激）があり、網膜は光、蝸牛は音などが適刺激である。"},
+    {id:"sens_002",text:"感覚の順応とは、持続的な刺激に対して感覚が鈍くなる現象である。",answer:true,explanation:"同じ強さの刺激が続くと受容器の応答が低下し、感覚が弱まる。嗅覚は順応が速く、痛覚は遅い。"},
+    {id:"sens_003",text:"眼球の最外層は角膜と強膜からなる線維膜（外膜）である。",answer:true,explanation:"眼球壁は外膜（線維膜：角膜＋強膜）、中膜（血管膜：虹彩＋毛様体＋脈絡膜）、内膜（網膜）の3層からなる。"},
+    {id:"sens_004",text:"角膜には血管が豊富に分布している。",answer:false,explanation:"角膜は透明性を維持するため血管がなく（無血管組織）、酸素と栄養は涙液や房水から供給される。"},
+    {id:"sens_005",text:"虹彩の中央の開口部が瞳孔である。",answer:true,explanation:"虹彩は眼球の絞りの役割をし、中央の瞳孔の大きさを変えて眼内に入る光量を調節する。"},
+    {id:"sens_006",text:"瞳孔は明るい場所では散大（散瞳）する。",answer:false,explanation:"明るい場所では瞳孔括約筋（副交感神経支配）が収縮して瞳孔は縮小（縮瞳）する。散大は暗所で起こる。"},
+    {id:"sens_007",text:"水晶体は毛様体筋の収縮により厚くなり、近くにピントを合わせる。",answer:true,explanation:"近くを見るとき毛様体筋が収縮→チン小帯が弛緩→水晶体が自身の弾性で厚くなり、屈折力が増す（調節）。"},
+    {id:"sens_008",text:"老視（老眼）は水晶体の弾性低下により近方の調節力が減少する状態である。",answer:true,explanation:"加齢により水晶体が硬化して弾性が低下し、近くにピントを合わせる調節力が不足するのが老視である。"},
+    {id:"sens_009",text:"白内障は水晶体が混濁する疾患である。",answer:true,explanation:"白内障は水晶体のタンパク質が変性して白く混濁し、視力低下やまぶしさなどの症状を起こす疾患である。"},
+    {id:"sens_010",text:"緑内障は眼圧上昇などにより視神経が障害される疾患である。",answer:true,explanation:"緑内障は眼圧上昇や血流障害により視神経が障害され、視野が徐々に欠損する疾患で、失明原因の上位を占める。"},
+    {id:"sens_011",text:"房水は脈絡膜で産生される。",answer:false,explanation:"房水は毛様体突起で産生され、後房→瞳孔→前房→シュレム管を経て静脈系に排出される。"},
+    {id:"sens_012",text:"硝子体は眼球の大部分を占める透明なゲル状物質である。",answer:true,explanation:"硝子体は水晶体の後方から網膜までの空間を満たす透明なゲル状組織で、眼球の形状維持に寄与する。"},
+    {id:"sens_013",text:"網膜の視細胞には桿体細胞と錐体細胞の2種類がある。",answer:true,explanation:"桿体細胞は暗所での明暗視（薄明視）、錐体細胞は明所での色覚と精細な視力（昼光視）を担う。"},
+    {id:"sens_014",text:"錐体細胞は網膜の周辺部に最も多く分布する。",answer:false,explanation:"錐体細胞は網膜の中心窩（黄斑の中央）に最も密集しており、視力が最も高い部位である。周辺部に多いのは桿体細胞。"},
+    {id:"sens_015",text:"視神経乳頭（盲点）には視細胞が存在しない。",answer:true,explanation:"視神経乳頭は網膜の視神経線維が集まって眼球を出る部位で、視細胞がないため光を感じない（盲点）。"},
+    {id:"sens_016",text:"視覚の中枢は大脳の側頭葉にある。",answer:false,explanation:"視覚中枢は大脳の後頭葉（一次視覚野、鳥距溝周囲）にある。側頭葉には聴覚中枢がある。"},
+    {id:"sens_017",text:"右眼の視神経は視交叉で全ての線維が左側に交叉する。",answer:false,explanation:"視交叉では鼻側の線維のみが対側に交叉し、耳側の線維は交叉せず同側を走行する（半交叉）。"},
+    {id:"sens_018",text:"近視は眼軸が長いために網膜の手前に焦点が結ばれる状態である。",answer:true,explanation:"近視は眼軸長の延長や屈折力過大により焦点が網膜前方に結ばれる。凹レンズで矯正する。"},
+    {id:"sens_019",text:"遠視は凸レンズで矯正する。",answer:true,explanation:"遠視は眼軸が短く焦点が網膜後方にあるため、凸レンズで屈折力を補って網膜上に焦点を合わせる。"},
+    {id:"sens_020",text:"乱視は角膜や水晶体の曲率が均一でないために起こる。",answer:true,explanation:"乱視は角膜などの屈折面が方向によって曲率が異なるため、1点に焦点が結べず像がぼやける状態である。"},
+    {id:"sens_021",text:"耳は外耳・中耳・内耳の3部分からなる。",answer:true,explanation:"耳は外耳（耳介・外耳道）、中耳（鼓膜・耳小骨・鼓室）、内耳（蝸牛・前庭・半規管）の3部で構成される。"},
+    {id:"sens_022",text:"鼓膜の振動は耳小骨（ツチ骨・キヌタ骨・アブミ骨）を介して内耳に伝わる。",answer:true,explanation:"鼓膜の振動はツチ骨→キヌタ骨→アブミ骨の順に伝わり、アブミ骨底板が前庭窓を振動させて内耳に音を伝える。"},
+    {id:"sens_023",text:"耳管（エウスタキオ管）は中耳と口腔をつなぐ。",answer:false,explanation:"耳管は中耳（鼓室）と咽頭（上咽頭）をつなぎ、中耳内の気圧を外気圧と等しく調節する管である。口腔ではない。"},
+    {id:"sens_024",text:"蝸牛は聴覚を担う器官である。",answer:true,explanation:"蝸牛はカタツムリ状の構造で、内部のコルチ器（ラセン器）の有毛細胞が音の振動を電気信号に変換する。"},
+    {id:"sens_025",text:"コルチ器の有毛細胞は音の振動を神経インパルスに変換する。",answer:true,explanation:"基底膜上のコルチ器の有毛細胞が蓋膜との間で生じるずれにより興奮し、蝸牛神経を介して聴覚情報を脳に伝える。"},
+    {id:"sens_026",text:"高い音は蝸牛の基底回転（底部）付近で感知される。",answer:true,explanation:"蝸牛の基底膜は基底回転で狭く硬いため高周波数に共鳴し、頂回転では広く柔らかいため低周波数に共鳴する。"},
+    {id:"sens_027",text:"聴覚中枢は大脳の後頭葉にある。",answer:false,explanation:"聴覚中枢は大脳の側頭葉（上側頭回、横側頭回）に位置する。後頭葉には視覚中枢がある。"},
+    {id:"sens_028",text:"伝音難聴は外耳または中耳の障害によって起こる。",answer:true,explanation:"伝音難聴は鼓膜穿孔・耳小骨固着・中耳炎など音の伝達経路の障害で起こる。内耳以降の障害は感音難聴である。"},
+    {id:"sens_029",text:"前庭は回転加速度を感知する。",answer:false,explanation:"前庭（卵形嚢・球形嚢）は直線加速度と頭の傾きを感知する。回転加速度を感知するのは半規管である。"},
+    {id:"sens_030",text:"半規管は前半規管・後半規管・外側半規管の3つがあり、三次元の回転を感知する。",answer:true,explanation:"3つの半規管は互いにほぼ直交する面に配置され、あらゆる方向の回転加速度（角加速度）を感知できる。"},
+    {id:"sens_031",text:"半規管の膨大部にはクプラ（膨大部稜）があり、内リンパの流れを感知する。",answer:true,explanation:"回転運動で内リンパが流動するとクプラが偏位し、有毛細胞が刺激されて回転加速度の情報が脳に送られる。"},
+    {id:"sens_032",text:"前庭神経は小脳や脳幹の前庭核に情報を送る。",answer:true,explanation:"前庭神経は内耳の前庭・半規管からの平衡覚情報を脳幹の前庭核に伝え、さらに小脳・眼球運動核などと連携する。"},
+    {id:"sens_033",text:"味覚の受容器は味蕾であり、舌の乳頭に多く存在する。",answer:true,explanation:"味蕾は舌の有郭乳頭・葉状乳頭・茸状乳頭に存在する受容器で、味覚細胞が化学物質を感知する。"},
+    {id:"sens_034",text:"基本味覚は甘味・塩味・酸味・苦味・辛味の5つである。",answer:false,explanation:"基本味覚は甘味・塩味・酸味・苦味・うま味の5つである。辛味は味覚ではなく痛覚（侵害受容）に分類される。"},
+    {id:"sens_035",text:"味覚の情報は顔面神経・舌咽神経・迷走神経によって伝えられる。",answer:true,explanation:"舌前2/3の味覚は顔面神経（鼓索神経）、後1/3は舌咽神経、喉頭蓋付近は迷走神経が担う。"},
+    {id:"sens_036",text:"嗅覚の受容器は鼻腔上部の嗅上皮に存在する。",answer:true,explanation:"嗅上皮は鼻腔天蓋部にあり、嗅細胞（嗅神経細胞）が匂い分子を受容して嗅神経を介して嗅球に情報を送る。"},
+    {id:"sens_037",text:"嗅覚は大脳新皮質を経由せずに直接大脳辺縁系に到達する。",answer:true,explanation:"嗅覚情報は視床を経由せず、嗅球から直接大脳辺縁系（扁桃体・海馬傍回など）に伝わる唯一の感覚である。"},
+    {id:"sens_038",text:"皮膚の触覚受容器にはマイスナー小体やメルケル細胞がある。",answer:true,explanation:"マイスナー小体は軽い接触に、メルケル細胞は持続的な圧に応答する触覚受容器で、主に表皮と真皮に分布する。"},
+    {id:"sens_039",text:"パチニ小体は深部圧覚と振動覚を感知する受容器である。",answer:true,explanation:"パチニ小体（層板小体）は皮下組織や腸間膜などに存在する大型の受容器で、圧変化や振動に感受性が高い。"},
+    {id:"sens_040",text:"温覚の受容器はルフィニ終末、冷覚の受容器はクラウゼ終末とされる。",answer:true,explanation:"温覚にはルフィニ終末が、冷覚にはクラウゼ終末が関与するとされるが、自由神経終末も温度感覚に重要な役割を持つ。"},
+    {id:"sens_041",text:"痛覚の受容器は自由神経終末である。",answer:true,explanation:"痛覚（侵害受容）は特殊な終末構造を持たない自由神経終末で受容される。全身に広く分布し順応しにくい。"},
+    {id:"sens_042",text:"痛覚は最も順応しやすい感覚である。",answer:false,explanation:"痛覚は生体の警告信号であるため順応しにくい。最も順応しやすい感覚の一つは嗅覚や触覚である。"},
+    {id:"sens_043",text:"関連痛とは、内臓の痛みが体表の特定部位に感じられる現象である。",answer:true,explanation:"内臓と体表の求心性神経が脊髄で合流するため、内臓痛が対応する皮膚分節に投射される。心筋梗塞時の左肩の痛みが代表例。"},
+    {id:"sens_044",text:"体性感覚の情報は対側の大脳半球の体性感覚野に伝えられる。",answer:true,explanation:"体性感覚情報は延髄または脊髄で交叉し、対側の大脳皮質頭頂葉の中心後回（体性感覚野）に投射される。"},
+    {id:"sens_045",text:"二点識別閾は指先より背中の方が小さい。",answer:false,explanation:"二点識別閾は指先で最も小さく（約2mm）、背中では大きい（約40mm以上）。感覚受容器の密度の違いによる。"},
+    {id:"sens_046",text:"固有感覚（深部感覚）は筋紡錘や腱紡錘で感知される。",answer:true,explanation:"筋紡錘は筋の伸展を、腱紡錘（ゴルジ腱器官）は腱の張力を感知し、関節位置覚・運動覚などの固有感覚を担う。"},
+    {id:"sens_047",text:"涙液は結膜の杯細胞から分泌される。",answer:false,explanation:"涙液の大部分は上外側の涙腺から分泌される。杯細胞は結膜の粘液成分を分泌するが涙液の主な産生源ではない。"},
+    {id:"sens_048",text:"網膜中心窩は視力が最も高い部位で、錐体細胞が密集している。",answer:true,explanation:"中心窩は黄斑の中央にある小さなくぼみで、錐体細胞のみが密集し、最も鮮明な中心視力を担う。"},
+    {id:"sens_049",text:"メニエール病は内リンパ水腫によりめまい・難聴・耳鳴りを起こす疾患である。",answer:true,explanation:"メニエール病は内耳の内リンパ液が過剰に貯留し、回転性めまい・変動する感音難聴・耳鳴りの発作を繰り返す。"},
+    {id:"sens_050",text:"ウェーバーの法則とは、弁別閾は刺激強度に比例するという法則である。",answer:true,explanation:"ウェーバーの法則は弁別閾（ΔI）と元の刺激強度（I）の比（ΔI/I）が一定であるという感覚の基本法則である。"}
+  ],
+  "泌尿器系": [
+    {id:"urin_001",text:"泌尿器系は腎臓・尿管・膀胱・尿道から構成される。",answer:true,explanation:"泌尿器系は左右の腎臓で尿を生成し、尿管→膀胱→尿道の順に尿を排出する器官系である。"},
+    {id:"urin_002",text:"腎臓は腹腔内臓器である。",answer:false,explanation:"腎臓は後腹膜臓器であり、腹膜の後方（後腹膜腔）の脊柱両側に位置する。"},
+    {id:"urin_003",text:"右腎は肝臓の影響で左腎よりやや低い位置にある。",answer:true,explanation:"右側には大きな肝臓があるため、右腎は左腎より約1〜2cm低い位置に存在する。"},
+    {id:"urin_004",text:"腎臓の内側のくぼみを腎門といい、腎動脈・腎静脈・尿管が出入りする。",answer:true,explanation:"腎門は腎臓内側の陥凹部で、腎動脈・腎静脈・尿管・リンパ管・神経が出入りする。"},
+    {id:"urin_005",text:"腎臓は外側の髄質と内側の皮質からなる。",answer:false,explanation:"腎臓は外側が皮質、内側が髄質である。皮質には糸球体が多く、髄質にはヘンレループや集合管が走行する。"},
+    {id:"urin_006",text:"ネフロン（腎単位）は腎臓の構造的・機能的単位である。",answer:true,explanation:"ネフロンは腎小体（糸球体＋ボーマン嚢）と尿細管（近位尿細管・ヘンレループ・遠位尿細管）からなる腎臓の機能単位である。"},
+    {id:"urin_007",text:"1つの腎臓に約100万個のネフロンが存在する。",answer:true,explanation:"ヒトの腎臓1個には約100万個（80〜120万個）のネフロンがあり、加齢とともに徐々に減少する。"},
+    {id:"urin_008",text:"糸球体は毛細血管が糸玉状に集まった構造である。",answer:true,explanation:"糸球体は輸入細動脈から分岐した毛細血管が糸玉状のネットワークを形成し、輸出細動脈に集合する構造である。"},
+    {id:"urin_009",text:"糸球体を包む袋状の構造をヘンレ嚢という。",answer:false,explanation:"糸球体を包む二重壁の袋状構造はボーマン嚢（糸球体嚢）である。ヘンレはヘンレループ（ヘンレ係蹄）に名を残す。"},
+    {id:"urin_010",text:"糸球体濾過は血圧を駆動力とする受動的過程である。",answer:true,explanation:"糸球体濾過は糸球体毛細血管内の血圧（約60mmHg）を駆動力として、血漿成分がボーマン嚢内に押し出される受動過程である。"},
+    {id:"urin_011",text:"正常な糸球体濾過液にはタンパク質や血球が含まれる。",answer:false,explanation:"正常な糸球体濾過液（原尿）にはタンパク質や血球は含まれない。濾過膜がこれらの通過を阻止する。"},
+    {id:"urin_012",text:"糸球体濾過量（GFR）は成人で1日約180Lである。",answer:true,explanation:"GFRは約125mL/分、1日約180Lに相当する。このうち約99%が尿細管で再吸収され、最終尿量は約1.5L/日となる。"},
+    {id:"urin_013",text:"近位尿細管ではグルコースとアミノ酸がほぼ100%再吸収される。",answer:true,explanation:"近位尿細管では能動輸送によりグルコース・アミノ酸がほぼ完全に再吸収される。Na⁺や水も約65〜70%が再吸収される。"},
+    {id:"urin_014",text:"健常者の尿中にグルコースは通常検出されない。",answer:true,explanation:"正常では糸球体で濾過されたグルコースは近位尿細管でほぼ全量が再吸収されるため、尿中には排泄されない。"},
+    {id:"urin_015",text:"糖尿病で血糖値が腎の再吸収閾値を超えると尿糖が出現する。",answer:true,explanation:"血糖値が約170mg/dL（腎閾値）を超えると近位尿細管の輸送体が飽和し、再吸収しきれないグルコースが尿中に排泄される。"},
+    {id:"urin_016",text:"ヘンレループの下行脚は水の透過性が高い。",answer:true,explanation:"下行脚は水の透過性が高く、周囲の高浸透圧の髄質間質に水が引き出され、尿細管液が濃縮される。"},
+    {id:"urin_017",text:"ヘンレループの上行脚は水の透過性が高い。",answer:false,explanation:"上行脚は水に対して不透過性であり、NaClを能動的に汲み出す。これにより髄質の浸透圧勾配が形成される。"},
+    {id:"urin_018",text:"対向流増幅系はヘンレループにより腎髄質の浸透圧勾配を形成する仕組みである。",answer:true,explanation:"ヘンレループの下行脚と上行脚が並行して逆方向に流れることで、髄質に皮質から乳頭に向かう浸透圧勾配が形成される。"},
+    {id:"urin_019",text:"遠位尿細管と集合管はアルドステロンの作用でNa⁺を再吸収しK⁺を排泄する。",answer:true,explanation:"アルドステロンは遠位尿細管・集合管の主細胞に作用してNa⁺チャネルとNa⁺/K⁺-ATPaseの発現を増加させ、Na⁺再吸収とK⁺排泄を促進する。"},
+    {id:"urin_020",text:"ADH（バソプレシン）は集合管での水の再吸収を促進する。",answer:true,explanation:"ADHは集合管の主細胞のV2受容体に結合し、アクアポリン2を管腔側膜に挿入して水の再吸収を促進し、尿を濃縮する。"},
+    {id:"urin_021",text:"ADHの分泌が低下すると尿量が減少する。",answer:false,explanation:"ADH分泌が低下すると集合管での水再吸収が減り、大量の希釈尿が排泄される（尿崩症）。尿量は増加する。"},
+    {id:"urin_022",text:"傍糸球体装置は糸球体濾過量の自己調節に関与する。",answer:true,explanation:"傍糸球体装置は緻密斑・傍糸球体細胞・メサンギウム細胞からなり、尿細管糸球体フィードバックとレニン分泌を通じてGFRを調節する。"},
+    {id:"urin_023",text:"緻密斑は遠位尿細管の壁にあり、尿細管液中のNaCl濃度を感知する。",answer:true,explanation:"緻密斑は遠位尿細管が糸球体に接する部位の特殊化した上皮細胞群で、NaCl濃度を感知して傍糸球体細胞にシグナルを送る。"},
+    {id:"urin_024",text:"レニン-アンギオテンシン-アルドステロン系は血圧低下時に活性化される。",answer:true,explanation:"血圧低下→レニン分泌→アンギオテンシンII産生→血管収縮＋アルドステロン分泌→Na・水再吸収増加→血圧上昇という調節系である。"},
+    {id:"urin_025",text:"腎臓は酸塩基平衡の調節に関与する。",answer:true,explanation:"腎臓はH⁺の排泄とHCO₃⁻の再吸収・産生を通じて体液のpHを調節する。呼吸器系とともに酸塩基平衡を維持する。"},
+    {id:"urin_026",text:"腎臓はエリスロポエチンを産生し、赤血球の産生を促進する。",answer:true,explanation:"腎臓の尿細管周囲間質細胞が低酸素を感知してエリスロポエチンを産生し、骨髄での赤血球造血を刺激する。"},
+    {id:"urin_027",text:"慢性腎不全では腎性貧血が起こる。",answer:true,explanation:"慢性腎不全ではエリスロポエチン産生が低下するため、赤血球の産生が減少して腎性貧血を起こす。"},
+    {id:"urin_028",text:"腎臓はビタミンDを活性型に変換する。",answer:true,explanation:"腎臓の近位尿細管で25-ヒドロキシビタミンDが1α-水酸化酵素により活性型1,25-(OH)₂D₃に変換される。"},
+    {id:"urin_029",text:"尿管は平滑筋の蠕動運動により尿を膀胱に輸送する。",answer:true,explanation:"尿管壁の平滑筋が蠕動運動を行い、腎盂から膀胱まで尿を能動的に輸送する。重力だけに依存しない。"},
+    {id:"urin_030",text:"尿管には3つの生理的狭窄部がある。",answer:true,explanation:"尿管の狭窄部は①腎盂尿管移行部②総腸骨動脈交差部③膀胱壁貫通部の3か所で、尿路結石が嵌頓しやすい。"},
+    {id:"urin_031",text:"膀胱は骨盤腔内に位置し、尿を一時的に貯留する。",answer:true,explanation:"膀胱は恥骨結合の後方の骨盤腔内に位置する筋性の袋状臓器で、成人では約300〜500mLの尿を貯留できる。"},
+    {id:"urin_032",text:"膀胱壁の平滑筋を排尿筋（膀胱平滑筋）という。",answer:true,explanation:"膀胱壁の3層の平滑筋を総称して排尿筋といい、排尿時に収縮して膀胱内の尿を排出する。"},
+    {id:"urin_033",text:"排尿反射の中枢は腰髄にある。",answer:false,explanation:"排尿反射の中枢は仙髄（S2〜S4）にある。膀胱壁の伸展受容器からの求心性情報が仙髄の排尿中枢に伝えられる。"},
+    {id:"urin_034",text:"内尿道括約筋は横紋筋であり随意的に制御できる。",answer:false,explanation:"内尿道括約筋は平滑筋（不随意筋）であり、交感神経の支配を受ける。随意的に制御できるのは外尿道括約筋（横紋筋）である。"},
+    {id:"urin_035",text:"副交感神経の興奮は排尿筋を収縮させ排尿を促す。",answer:true,explanation:"骨盤神経（副交感神経）の興奮により排尿筋が収縮し、内尿道括約筋が弛緩して排尿が起こる。"},
+    {id:"urin_036",text:"交感神経は蓄尿時に膀胱を弛緩させ、内尿道括約筋を収縮させる。",answer:true,explanation:"下腹神経（交感神経）は排尿筋を弛緩（β受容体）させ、内尿道括約筋を収縮（α受容体）させて蓄尿に働く。"},
+    {id:"urin_037",text:"正常な尿のpHは約7.4で一定である。",answer:false,explanation:"正常尿のpHは約4.5〜8.0の範囲で変動し、平均は約6.0（弱酸性）である。食事や代謝状態で変化する。"},
+    {id:"urin_038",text:"正常な尿は淡黄色で、その色はウロクロムによる。",answer:true,explanation:"尿の黄色はウロクロム（ヘモグロビン代謝産物）による。尿量が少ないと濃く、多いと薄くなる。"},
+    {id:"urin_039",text:"正常な尿の比重は約1.015〜1.025である。",answer:true,explanation:"尿比重は溶質濃度を反映し、正常では約1.001〜1.030、平均1.015〜1.025程度である。腎の濃縮能の指標となる。"},
+    {id:"urin_040",text:"クレアチニンは筋肉中のクレアチンリン酸の代謝産物で、GFRの指標として用いられる。",answer:true,explanation:"クレアチニンは糸球体で自由に濾過され尿細管でほとんど再吸収されないため、血中クレアチニン値やクレアチニンクリアランスはGFRの指標となる。"},
+    {id:"urin_041",text:"血中尿素窒素（BUN）の上昇は腎機能低下を示唆する。",answer:true,explanation:"BUNはタンパク質代謝の最終産物である尿素の血中濃度で、腎機能低下により排泄が減少すると上昇する。"},
+    {id:"urin_042",text:"尿路感染症は男性に多い。",answer:false,explanation:"尿路感染症は女性に多い。女性は尿道が短く（約4cm）、外尿道口が肛門に近いため細菌が侵入しやすい。"},
+    {id:"urin_043",text:"ネフローゼ症候群では大量のタンパク尿と低アルブミン血症がみられる。",answer:true,explanation:"ネフローゼ症候群は糸球体の透過性亢進により大量のタンパク質が尿中に漏出し、低アルブミン血症・浮腫・高脂血症を呈する。"},
+    {id:"urin_044",text:"糸球体腎炎では血尿とタンパク尿が特徴的である。",answer:true,explanation:"糸球体腎炎は糸球体の炎症により基底膜が障害され、血尿（赤血球の漏出）とタンパク尿が出現する。"},
+    {id:"urin_045",text:"腎臓は体液量の調節を通じて血圧の長期的調節に関与する。",answer:true,explanation:"腎臓はNaと水の排泄量を調節して体液量を制御し、これが血圧の長期的な調節メカニズムの中心となる。"},
+    {id:"urin_046",text:"輸入細動脈は輸出細動脈より太い。",answer:true,explanation:"輸入細動脈は輸出細動脈より太く、この口径差により糸球体毛細血管内に高い血圧が維持され、効率的な濾過が可能になる。"},
+    {id:"urin_047",text:"尿の生成過程は糸球体濾過・尿細管再吸収・尿細管分泌の3段階からなる。",answer:true,explanation:"①糸球体で血漿が濾過され原尿となり、②尿細管で必要な物質が再吸収され、③不要な物質が尿細管に分泌されて最終尿が生成される。"},
+    {id:"urin_048",text:"パラアミノ馬尿酸（PAH）のクリアランスは腎血漿流量の推定に用いられる。",answer:true,explanation:"PAHは糸球体濾過と尿細管分泌の両方で排泄され、1回の通過でほぼ完全に除去されるため、腎血漿流量の指標となる。"},
+    {id:"urin_049",text:"透析は腎不全患者の血液から老廃物や余分な水分を除去する治療法である。",answer:true,explanation:"透析は半透膜を介した拡散と限外濾過により、腎臓に代わって血中の老廃物・電解質・水分を除去する代替療法である。"},
+    {id:"urin_050",text:"腎移植では移植腎は通常、元の腎臓と同じ位置に移植される。",answer:false,explanation:"腎移植では通常、元の腎臓は残したまま、移植腎は腸骨窩（骨盤腔内）に移植される。元の位置には置かない。"}
+  ]
+};
+var CH=Object.keys(Q),cur=[],ci=0,sc=0,log=[],sCh=null,sCn=null;
+function ss(id){document.querySelectorAll('.scr').forEach(function(s){s.classList.remove('on')});document.getElementById(id).classList.add('on');window.scrollTo(0,0)}
+function S0(){sCh=null;sCn=null;ss('S0')}
+function S1(){
+var g=document.getElementById('CG');g.innerHTML='';
+CH.forEach(function(ch){var b=document.createElement('button');b.className='cb';b.textContent=ch;b.onclick=function(){g.querySelectorAll('.cb').forEach(function(x){x.classList.remove('sel')});b.classList.add('sel');sCh=ch;uCS()};g.appendChild(b)});
+var c=document.getElementById('CC');c.innerHTML='';
+[10,20,50].forEach(function(n,i){var b=document.createElement('button');b.className='cn'+(i===2?' sel':'');b.textContent=n+'問';b.onclick=function(){c.querySelectorAll('.cn').forEach(function(x){x.classList.remove('sel')});b.classList.add('sel');sCn=n;uCS()};c.appendChild(b)});
+sCn=50;sCh=null;document.getElementById('CS').disabled=true;ss('S1')
+}
+function uCS(){var b=document.getElementById('CS');b.disabled=!sCh;if(sCh){var a=Q[sCh].length;var n=Math.min(sCn||50,a);b.textContent=sCh+'（'+n+'問）スタート'}}
+function startCh(){var p=Q[sCh].slice();var n=Math.min(sCn||50,p.length);cur=shuf(p).slice(0,n);go()}
+function S2(){
+var c=document.getElementById('AC');c.innerHTML='';sCn=60;
+[60,80,100].forEach(function(n,i){var b=document.createElement('button');b.className='cn'+(i===0?' sel':'');b.textContent=n+'問';b.onclick=function(){c.querySelectorAll('.cn').forEach(function(x){x.classList.remove('sel')});b.classList.add('sel');sCn=n};c.appendChild(b)});
+ss('S2')
+}
+function startAll(){var p=[];CH.forEach(function(ch){p=p.concat(Q[ch])});var n=Math.min(sCn||60,p.length);cur=shuf(p).slice(0,n);go()}
+function go(){ci=0;sc=0;log=[];ss('S3');rq()}
+function rq(){
+var q=cur[ci],t=cur.length;
+document.getElementById('PB').style.width=(ci/t*100)+'%';
+document.getElementById('PT').textContent=(ci+1)+' / '+t;
+document.getElementById('QN').textContent='第'+(ci+1)+'問';
+document.getElementById('QT').textContent=q.text;
+document.querySelectorAll('.ab button').forEach(function(b){b.disabled=false;b.style.opacity='1'});
+document.getElementById('FB').className='fb';
+document.getElementById('NB').className='nb';
+}
+function ans(u){
+var q=cur[ci],ok=u===q.answer;if(ok)sc++;
+log.push({question:q,userAnswer:u,correct:ok});
+document.querySelectorAll('.ab button').forEach(function(b){b.disabled=true});
+var fb=document.getElementById('FB'),fl=document.getElementById('FL'),fe=document.getElementById('FE');
+if(ok){fb.className='fb cfb show';fl.className='fl cl';fl.textContent='◯ 正解！'}
+else{fb.className='fb wfb show';fl.className='fl wl';fl.textContent='✕ 不正解'}
+fe.textContent=q.explanation+'（正解: '+(q.answer?'◯':'✕')+'）';
+var nb=document.getElementById('NB');nb.textContent=ci===cur.length-1?'結果を見る':'次の問題 →';nb.className='nb show';
+}
+function nxt(){ci++;if(ci>=cur.length)res();else rq()}
+function res(){
+var t=cur.length,p=Math.round(sc/t*100);
+var c=document.getElementById('SC');c.className='sc '+(p>=80?'sh':p>=50?'sm':'sl');
+document.getElementById('SV').textContent=p+'%';
+document.getElementById('SB').textContent=sc+' / '+t;
+document.getElementById('RT').textContent=p>=90?'素晴らしい！':p>=70?'よくできました！':p>=50?'もう少し！':'頑張りましょう！';
+document.getElementById('RD').textContent=t+'問中'+sc+'問正解しました。';
+ss('S4')
+}
+function rev(){
+var l=document.getElementById('RL');l.innerHTML='';
+log.forEach(function(a,i){
+var d=document.createElement('div');d.className='ri '+(a.correct?'rc':'rw');
+d.innerHTML='<div class="rh"><span class="rn">第'+(i+1)+'問</span><span class="rdg '+(a.correct?'bc':'bw')+'">'+(a.correct?'正解':'不正解')+'</span></div><div class="rtx">'+a.question.text+'</div><div class="ra">正解: '+(a.question.answer?'◯':'✕')+'　あなたの回答: '+(a.userAnswer?'◯':'✕')+'</div><div class="re">'+a.question.explanation+'</div>';
+l.appendChild(d)});
+ss('S5')
+}
+function quit(){if(sCh){S1()}else{S0()}}
+function shuf(a){var r=a.slice();for(var i=r.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=r[i];r[i]=r[j];r[j]=t}return r}
+</script>
+</body>
+</html>
